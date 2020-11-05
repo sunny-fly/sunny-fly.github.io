@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -192,6 +192,98 @@
       
 
       
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://sunny-fly.github.io/2020/11/05/telnet%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sunny">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SUNNY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/05/telnet%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/" class="post-title-link" itemprop="url">telnet实现邮件发送</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-11-05 14:24:23 / Modified: 14:26:58" itemprop="dateCreated datePublished" datetime="2020-11-05T14:24:23+08:00">2020-11-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="telnet发送邮件"><a href="#telnet发送邮件" class="headerlink" title="telnet发送邮件"></a>telnet发送邮件</h1><h2 id="为电脑配置telnet-环境"><a href="#为电脑配置telnet-环境" class="headerlink" title="为电脑配置telnet 环境"></a>为电脑配置telnet 环境</h2><ol>
+<li><p>win+r，输入cmd,命令行中输入control(这一步是为了打开控制面板，你也可以直接打开电脑控制面板）<br><img src="https://img-blog.csdnimg.cn/20201105131118188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p5eV9zdW5ueQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>打开控制面板之后，点击左下角的程序，选择程序和功能，在选择启用或关闭windows功能，再点击telnet client 就OK了。<img src="https://img-blog.csdnimg.cn/20201105132028272.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p5eV9zdW5ueQ==,size_16,color_FFFFFF,t_70#pic_center"><br>设置完环境，就可以，进行简单的邮件发送操作了。</p>
+<h2 id="邮件发送"><a href="#邮件发送" class="headerlink" title="邮件发送"></a>邮件发送</h2><p>大致步骤如下</p>
+</li>
+<li><p>利用telnet与服务器端建立联系。</p>
+</li>
+<li><p>输入账号，密码</p>
+</li>
+<li><p>发送消息，</p>
+</li>
+<li><p>结束</p>
+<p>命令中输入的代码大致如下</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet smtp.163.com 25 //域名,,25是邮件传输固定的端口号</span><br></pre></td></tr></table></figure>
+<p>连接好之后，会进入，telnet命令行，大致是这个样子<img src="https://img-blog.csdnimg.cn/2020110513293192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p5eV9zdW5ueQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>接下来，就开始连接了。下面都是smtp固定的，连接方式。<br>接到反馈之后，按顺序输入，就OK了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">helo sunny//后面的sunny可以随便输入helo 是固定的，不过大小写不影响</span><br><span class="line">250 OK//计算机反馈的信息</span><br><span class="line">auth login//固定的</span><br><span class="line">334 dXNlcm5hbWU6//计算机反馈的信息</span><br><span class="line">************//这个地方输入的是base64编码的邮箱地址</span><br><span class="line">334 UGFzc3dvcmQ6//计算机反馈的信息</span><br><span class="line">************//这个地方是，授权码的base64编码</span><br><span class="line">235 Authentication successful//电脑反馈235</span><br><span class="line">mail from ：&lt;发件人邮箱地址&gt;</span><br><span class="line">250 Mail OK  </span><br><span class="line">rcpt to :&lt;收件人邮箱地址&gt;</span><br><span class="line">250 Mail OK  //出现这个说明正常</span><br><span class="line">data //输入</span><br><span class="line">354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt; //反馈</span><br><span class="line">from:发件人邮箱地址</span><br><span class="line">to:收件人邮箱地址</span><br><span class="line">subject：them//这个你的邮件的主题</span><br><span class="line"></span><br><span class="line">data：惊呆了沙捡来的//正文输入主义空行</span><br><span class="line">250 Mail OK queued as smtp9,DcCowACX+4y6jqNfZrrFOw--.7488S4 1604555083  //这是计算机反馈的信息，基本就OK了。`</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201105140528993.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p5eV9zdW5ueQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>差不多就是这个样子。</p>
+<h3 id="获取授权码"><a href="#获取授权码" class="headerlink" title="获取授权码"></a>获取授权码</h3><ol>
+<li>登录网易邮箱</li>
+<li>点击设置</li>
+<li>选择smtp，icmp,选择开启<br>然后就会让你发消息，然后发完消息就有授权码了</li>
+</ol>
+<h3 id="base64编码转换"><a href="#base64编码转换" class="headerlink" title="base64编码转换"></a>base64编码转换</h3><p>直接从网上找在线转换网站就OK了<br><a target="_blank" rel="noopener" href="https://www.jb51.net/tools/base64.htm">base64转换</a></p>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>1.telnet命令行再输入的时候千万不能出错，（反正我的是），出错了即使修改也会出现<br>500 Error: bad syntax     或<br>502 Error: command not implemented<br>第一个是输入格式问题，第二个是命令无法识别。这种情况的话，我觉得只能重新再次输入，多输入几遍。因为（输入到命令行里的数据就被记录下来了，即使删除了，接到的命令也还是一直再增加。）我也不知道是不是只有我的电脑才这样。<br>2. 输入数据的时候，一定要输入正确的数据，比如说，base64编码的时候，一定要输入base64编码，授权码，也要用base64编码，还有就是，base64 后面似乎是不允许有空格，如果有空格的话，会出现。<br>535 Error: authentication failed<br>这种情况。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
     
 
 
