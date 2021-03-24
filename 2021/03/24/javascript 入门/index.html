@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"sunny-fly.github.io","root":"/","images":"/images","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="javascript入门可插入HTML页面的轻量编程语言。特点：易学 Javascript 常见的使用方式有两种 第一种就是在html 文件中直接插入script，不过在项目中更多的是直接建立一个main.js 文件，然后在 html 中利用script引用该文件 123456789101112131415161718192021222324&lt;!--第二种，一般都是放在head头部，src">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SUNNY">
+<meta property="og:url" content="http://sunny-fly.github.io/2021/03/24/javascript%20%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="SUNNY">
+<meta property="og:description" content="javascript入门可插入HTML页面的轻量编程语言。特点：易学 Javascript 常见的使用方式有两种 第一种就是在html 文件中直接插入script，不过在项目中更多的是直接建立一个main.js 文件，然后在 html 中利用script引用该文件 123456789101112131415161718192021222324&lt;!--第二种，一般都是放在head头部，src">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-24T06:16:34.595Z">
+<meta property="article:modified_time" content="2021-03-24T10:37:02.783Z">
+<meta property="article:author" content="sunny">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://sunny-fly.github.io/2021/03/24/javascript%20%E5%85%A5%E9%97%A8/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title> | SUNNY</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">SUNNY</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">TRY AGAIN</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#javascript%E5%85%A5%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">javascript入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Javascript-%E5%8F%98%E9%87%8F%E8%BE%93%E5%87%BA"><span class="nav-number">1.0.1.</span> <span class="nav-text">Javascript 变量输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">javascript语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">数组的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.2.</span> <span class="nav-text">函数定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javascript-%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.1.3.</span> <span class="nav-text">javascript 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#for-%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">for 循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#while%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#do-while-%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">do while 循环</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor-%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.4.</span> <span class="nav-text">constructor 属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96"><span class="nav-number">1.2.</span> <span class="nav-text">类型转化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="nav-number">1.3.</span> <span class="nav-text">正则表达式匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%90%E5%AE%9A%E7%AC%A6"><span class="nav-number">1.3.1.</span> <span class="nav-text">限定符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.3.2.</span> <span class="nav-text">或运算符与字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">1.3.3.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%AA%E5%A9%AA-%E6%87%92%E6%83%B0%E5%8C%B9%E9%85%8D"><span class="nav-number">1.3.4.</span> <span class="nav-text">贪婪&#x2F;懒惰匹配</span></a></li></ol></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">sunny</p>
+  <div class="site-description" itemprop="description">突然发现，自己好像总是在学习方面慢别人一拍</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://sunny-fly.github.io/2021/03/24/javascript%20%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sunny">
+      <meta itemprop="description" content="突然发现，自己好像总是在学习方面慢别人一拍">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SUNNY">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-03-24 14:16:34 / Modified: 18:37:02" itemprop="dateCreated datePublished" datetime="2021-03-24T14:16:34+08:00">2021-03-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="javascript入门"><a href="#javascript入门" class="headerlink" title="javascript入门"></a>javascript入门</h1><p>可插入HTML页面的轻量编程语言。特点：易学</p>
+<p>Javascript 常见的使用方式有两种</p>
+<p>第一种就是在html 文件中直接插入script，不过在项目中更多的是直接建立一个main.js 文件，然后在</p>
+<p>html 中利用script引用该文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--第二种，一般都是放在head头部，src 表示的js文件的地址--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;main.js&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--第一种就是代码如下--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> &gt;</span></span><br><span class="line"><span class="javascript">        <span class="string">``</span><span class="string">``</span><span class="string">``</span><span class="string">``</span><span class="string">``</span><span class="string">`</span></span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在script 内部写执行代码。</p>
+<h3 id="Javascript-变量输出"><a href="#Javascript-变量输出" class="headerlink" title="Javascript 变量输出"></a>Javascript 变量输出</h3><ol>
+<li><p>windows.alert(),弹出警告框</p>
+</li>
+<li><p>document.write();将内容写到HTML文档中</p>
+</li>
+<li><p>innerHTML 写入到innerHTML，使用如下</p>
+<p><code>&lt;script&gt;document.getElementById(&quot;demo&quot;).innerHTML = &quot;段落已修改。&quot;;&lt;/script&gt;</code></p>
+</li>
+<li><p>console.log(),将内容写入到浏览器的控制台。</p>
+</li>
+</ol>
+<h2 id="javascript语法"><a href="#javascript语法" class="headerlink" title="javascript语法"></a>javascript语法</h2><p>数字，字符串，bool类型，以及数组，对象，等都类似与c++；此外，几乎所有的变量都要使用</p>
+<p><strong>var</strong>来定义。<code>var a=6; var name = &#39;sunny&#39;;</code>此外，javascript每个语句后都不能缺少**;**</p>
+<h3 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; new Array();</span><br><span class="line">var b&#x3D; [];</span><br><span class="line">var name &#x3D; [&quot;sunny&quot;,&quot;sun&quot;];&#x2F;&#x2F;这些都类似于c++；</span><br></pre></td></tr></table></figure>
+
+<p>javascript 中还有一些其他关键字，注释也是，与c++类似；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&quot;sunny&quot;,&quot;sun&quot;];&#x2F;&#x2F;数组</span><br><span class="line">var b  &#x3D; &#123;first:&quot;JOHN&quot;,second:&quot;dog&quot;&#125;&#x2F;&#x2F;对象，就类似与字典。</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function myFunction(a, b) &#123;</span><br><span class="line">    return a * b;                                &#x2F;&#x2F; 返回 a 乘以 b 的结果</span><br><span class="line">&#125;&#x2F;&#x2F;function是构造函数的关键字</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;demo&quot;</span>).innerHTML=<span class="string">&quot;你好 Dolly&quot;</span>;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;myDIV&quot;</span>).innerHTML=<span class="string">&quot;你最近怎么样?&quot;</span>;<span class="comment">//这个涉及到javascript</span></span><br><span class="line">的细节性操作。这里就是修改id 为demo和myDIV的里面的数据。</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">事件</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">onchange</td>
+<td align="left">HTML 元素改变</td>
+</tr>
+<tr>
+<td align="left">onclick</td>
+<td align="left">用户点击 HTML 元素</td>
+</tr>
+<tr>
+<td align="left">onmouseover</td>
+<td align="left">用户在一个HTML元素上移动鼠标</td>
+</tr>
+<tr>
+<td align="left">onmouseout</td>
+<td align="left">用户从一个HTML元素上移开鼠标</td>
+</tr>
+<tr>
+<td align="left">onkeydown</td>
+<td align="left">用户按下键盘按键</td>
+</tr>
+<tr>
+<td align="left">onload</td>
+<td align="left">浏览器已完成页面的加载</td>
+</tr>
+</tbody></table>
+<p>更多事件列表: <a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/dom-obj-event.html">JavaScript 参考手册 - HTML DOM 事件</a>。</p>
+<h3 id="javascript-循环"><a href="#javascript-循环" class="headerlink" title="javascript 循环"></a>javascript 循环</h3><h4 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h4><p><code>for(语句1;语句2;语句3)</code>和其他高级语言没区别</p>
+<p><code>for(i in name )</code>//这里是一个for ···in循环。</p>
+<h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><p><code>while(条件)&#123;执行代码&#125;</code></p>
+<h4 id="do-while-循环"><a href="#do-while-循环" class="headerlink" title="do while 循环"></a>do while 循环</h4><p><code>do&#123;执行语句&#125;while(判断条件)</code></p>
+<h3 id="constructor-属性"><a href="#constructor-属性" class="headerlink" title="constructor 属性"></a>constructor 属性</h3><p><strong>constructor</strong>属性返回所有javascript 变量的构造函数，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&quot;John&quot;.constructor         &#x2F;&#x2F; 返回函数 String() &#123; [native code] &#125;</span><br><span class="line">(3.14).constructor         &#x2F;&#x2F; 返回函数 Number() &#123; [native code] &#125;</span><br><span class="line">false.constructor         &#x2F;&#x2F; 返回函数 Boolean() &#123; [native code] &#125;</span><br><span class="line">[1,2,3,4].constructor       &#x2F;&#x2F; 返回函数 Array()  &#123; [native code] &#125;</span><br><span class="line">&#123;name:&#39;John&#39;, age:34&#125;.constructor &#x2F;&#x2F; 返回函数 Object() &#123; [native code] &#125;</span><br><span class="line">new Date().constructor       &#x2F;&#x2F; 返回函数 Date()  &#123; [native code] &#125;</span><br><span class="line">function () &#123;&#125;.constructor     &#x2F;&#x2F; 返回函数 Function()&#123; [native code] &#125;</span><br><span class="line">function isArray(myArray) &#123;</span><br><span class="line">    return myArray.constructor.toString().indexOf(&quot;Array&quot;) &gt; -1;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;这个地方，tostring ,把返回的函数转化为字符串</span><br><span class="line">&#x2F;&#x2F;indexOf(&quot;string&quot;)查找在字符串中第一次出现子串的的位置。</span><br><span class="line">&#x2F;&#x2F;还有值得注意的是string(&quot;string&quot;)和string.tostring ()，有相同的功能。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h2><p>字符串转数字：<code>Number(&quot;string&quot;)</code>如果string是数字字符串，返回数字，如果不是，返回NaN</p>
+<p>布尔值转数字：<code>Number(“false&quot;);</code></p>
+<p>日期转数字：<code>d= new Date();   Number(d);</code>或<code>d = new Date();d.getTime()</code></p>
+<p>数字转字符串：<code>String(num) 或 num.toString()</code></p>
+<p>日期转字符串;<code>String(Date) 或 Date.toString()</code></p>
+<h2 id="正则表达式匹配规则"><a href="#正则表达式匹配规则" class="headerlink" title="正则表达式匹配规则"></a>正则表达式匹配规则</h2><p><code> /正则表达式主体/修饰符</code> 下面就是各种类型的修饰符及规则。</p>
+<h3 id="限定符"><a href="#限定符" class="headerlink" title="限定符"></a>限定符</h3><ul>
+<li>*（某个字符或字符串出现0次或多次） </li>
+<li>表示某个字符或字符串出现1次或多次+</li>
+<li>？表示某个字符或字符串出现0次或一次</li>
+<li>a{6} 表示a出现6次</li>
+<li>a{2,6} 表示a出现2-6次，一个范围</li>
+<li>a{2,}表示a出现两次以上</li>
+</ul>
+<h3 id="或运算符与字符串"><a href="#或运算符与字符串" class="headerlink" title="或运算符与字符串"></a>或运算符与字符串</h3><p>(a|b) 表示匹配a或b</p>
+<p>[abc] 匹配a或b或c;</p>
+<p>[a-z]小写字母</p>
+<p>[0-9] 数字字符。</p>
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><ul>
+<li>\d 匹配数字字符</li>
+<li>\D 匹配非数字字符</li>
+<li>\w 匹配单词字符（英文单词，下划线）</li>
+<li>\s 匹配空白符</li>
+<li>\S 匹配非空白符</li>
+<li>. 匹配任意字符</li>
+<li>^a 匹配行首的a</li>
+<li>a$ 匹配行尾的a</li>
+</ul>
+<h3 id="贪婪-懒惰匹配"><a href="#贪婪-懒惰匹配" class="headerlink" title="贪婪/懒惰匹配"></a>贪婪/懒惰匹配</h3><p>&lt;.+&gt;默认贪婪匹配“任意字符”</p>
+<p>&lt;.+?&gt;懒惰匹配任意字符。</p>
+<p>入门知识还有很多，暂时就这么多吧。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/05/telnet%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/" rel="prev" title="telnet实现邮件发送">
+                  <i class="fa fa-chevron-left"></i> telnet实现邮件发送
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sunny</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
