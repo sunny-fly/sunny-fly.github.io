@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -199,6 +199,323 @@
       
 
       
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://sunny-fly.github.io/2021/04/09/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95--%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sunny">
+      <meta itemprop="description" content="突然发现，自己好像总是在学习方面慢别人一拍">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SUNNY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/09/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95--%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-09 21:40:55" itemprop="dateCreated datePublished" datetime="2021-04-09T21:40:55+08:00">2021-04-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-04-10 11:13:06" itemprop="dateModified" datetime="2021-04-10T11:13:06+08:00">2021-04-10</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="分治算法–排序"><a href="#分治算法–排序" class="headerlink" title="分治算法–排序"></a>分治算法–排序</h1><h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>快速排序，分治算法的一种应用。</p>
+<p><strong>以从小到大为例</strong>：</p>
+<ol>
+<li>首先，确定一个基准点，一般使用最左边或者最右边的作为基准点。</li>
+<li>两个指针，一个从左边开始，一个从右边开始。两边均与base进行比较大小。小于基准点的数都放在左边，大于基准点的数都放在右边。最后将基准点放在，指针相遇的位置，这样，基准点的位置就确定了。</li>
+<li>结束条件，两个指针相遇，条件结束。</li>
+<li>以相遇点作为分割点，将待排序数组分为两个小数组，在分别进行快排。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">qsort</span><span class="params">(<span class="keyword">int</span> left,<span class="keyword">int</span> right,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> l = left;</span><br><span class="line">    <span class="keyword">int</span> r = right<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> base = arr[left];</span><br><span class="line">    <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">        <span class="keyword">while</span>(arr[r]&gt;base) r--;<span class="comment">//顺序不能调换</span></span><br><span class="line">        <span class="keyword">while</span>(arr[l]&lt;base) l++;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;r)&#123;</span><br><span class="line">            swap(arr[r],arr[l]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[left] = arr[l];</span><br><span class="line">    arr[l] = base;</span><br><span class="line">    qsort(left,l<span class="number">-1</span>,arr);</span><br><span class="line">    qsort(l+<span class="number">1</span>,right,arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码是从小到大排列的，需要注意的是。<strong>while（）内部的两个while的顺序</strong>，有规则的，不能随意改变位置。</p>
+<p>先从左边遍历还是先从右边遍历，取决于，最后，交换的条件。</p>
+<p>先从  left  开始遍历， 停止时的数是大于base，这个时候，left 位置的值应该放在base右边。达到结束条件是，left==right，这个时候，如果交换base的值和left，就会出现错误。</p>
+<p>先从 right 开始遍历，停止时的数是小于base，这个时候，right位置的值应该放在base左边。这个时候，base应该与left进行交换</p>
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>需要知道的是，一个数组其实就是一个堆，只是这个堆没有规律。所以对于堆的操作，实质是对数组的操作，，不过把数组具象化为完全二叉树，从上到下，从左到右为节点分别代表数组中的【0，1,2,3,4,5。。。】且最后一个节点是数组中的最后一个数。并且存在以下数学关系。</p>
+<p>parent（父节点），l_c(左子节点)，r_c(右子节点) 。l_c = 2*parent +1;r_c = 2`parent+2;</p>
+<p>数组[1,2,10,34,6,4,3]对应的堆如下。</p>
+<p><img src="C:\Users\admin\Desktop\图片3.png" alt="图片3"></p>
+<h3 id="小顶堆"><a href="#小顶堆" class="headerlink" title="小顶堆"></a>小顶堆</h3><p>顾名思义，根节点的值小于其两个子节点的值。如下图就是一个小根堆</p>
+<p><img src="C:\Users\admin\Desktop\图片1.png" alt="图片1">这个是数组[1,2,3]对应的小根堆。</p>
+<p><img src="C:\Users\admin\Desktop\图片2.png" alt="图片1">这个是数组[1,2,3,6,7,8,10,34]对应的小根堆</p>
+<p>由上图可知，小根堆，满足根节点最小，但是左右两个子节点的大小没办法确定。</p>
+<h3 id="大顶堆"><a href="#大顶堆" class="headerlink" title="大顶堆"></a>大顶堆</h3><p>举个例子：</p>
+<p><img src="C:\Users\admin\Desktop\图片4.png" alt="图片4">[7,4,5,3,2,4,3],顾名思义，所谓大根堆就是，根节点最大的堆。</p>
+<h3 id="堆的维护以及大顶堆的建立"><a href="#堆的维护以及大顶堆的建立" class="headerlink" title="堆的维护以及大顶堆的建立"></a>堆的维护以及大顶堆的建立</h3><p>以大顶堆为例</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;arr ,<span class="keyword">int</span> parent,<span class="keyword">int</span> maxsize)</span></span>&#123;</span><br><span class="line">    <span class="comment">//if(parent&gt;maxsize/2) return;</span></span><br><span class="line">    <span class="keyword">int</span> left = parent*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> right = parent*<span class="number">2</span>+<span class="number">2</span>;<span class="comment">//左右节点代表的下标</span></span><br><span class="line">    <span class="keyword">int</span> max = parent;</span><br><span class="line">    <span class="keyword">if</span>(left&lt;maxsize &amp;&amp; arr[left]&gt;arr[max]) max = left;</span><br><span class="line">    <span class="keyword">if</span>(right &lt;maxsize &amp;&amp; arr[right]&gt;arr[max]) max = right;<span class="comment">//判断三个节点中最大的数是哪一个。</span></span><br><span class="line">    <span class="keyword">if</span>(max!=parent)&#123;</span><br><span class="line">        swap(arr[max],arr[parent]);<span class="comment">//让数值较大的节点作为根节点。同时，因为做了交换，交换的子节点就可能不再是大顶堆，因此</span></span><br><span class="line">        heapify(arr,max,maxsize);<span class="comment">//需要对其交换的节点进行维护</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build_heap</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr,<span class="keyword">int</span> maxsize)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> parent = maxsize/<span class="number">2</span>;parent&gt;=<span class="number">0</span>;--parent)&#123;<span class="comment">//第一次创建大顶堆的话，开始需要从第一个非叶子节点进行检查，</span></span><br><span class="line">        heapify(arr,parent,maxsize);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sortbyheap</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxsize = arr.size();</span><br><span class="line">    build_heap(arr,maxsize);<span class="comment">//创建大顶堆。</span></span><br><span class="line">    <span class="keyword">while</span>(maxsize)&#123;</span><br><span class="line">        swap(arr[<span class="number">0</span>],arr[maxsize<span class="number">-1</span>]);<span class="comment">//把最大的放在最后一位</span></span><br><span class="line">        maxsize--;<span class="comment">//因为最大的已经放在后面了，所以只需要对前面进行排序即可。</span></span><br><span class="line">        heapify(arr,<span class="number">0</span>,maxsize);<span class="comment">//维护大顶堆，将最大的放在第一位</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>堆排序，很重要，需要在理解的路上再走一段。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://sunny-fly.github.io/2021/03/26/C++%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sunny">
+      <meta itemprop="description" content="突然发现，自己好像总是在学习方面慢别人一拍">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SUNNY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/26/C++%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-03-26 11:11:02 / Modified: 21:42:36" itemprop="dateCreated datePublished" datetime="2021-03-26T11:11:02+08:00">2021-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <hr>
+<p>title :时隔一年，再看c++<br>tag:C++<br>​—</p>
+<hr>
+<h1 id="c-基础知识总结"><a href="#c-基础知识总结" class="headerlink" title="c++基础知识总结"></a>c++基础知识总结</h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h3><p>常见类型，就不举例了，c++中多了<strong>枚举类型</strong>,关键字是<strong>enum</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//example</span></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">color</span>&#123;</span></span><br><span class="line">    red,</span><br><span class="line">    blue,</span><br><span class="line">    green,</span><br><span class="line">    black = <span class="number">7</span>,</span><br><span class="line">    white</span><br><span class="line">&#125; c;<span class="comment">//c表示的是枚举变量</span></span><br><span class="line">c=blue;<span class="comment">//这个时候如果输出c的话，c的值为1；</span></span><br><span class="line">c = white;<span class="comment">//这个时候输出c,c的值为8</span></span><br></pre></td></tr></table></figure>
+
+<p>枚举类型，在默认的情况下，后面一个数都会比前面的数大一。</p>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>c++中有前缀的像 <strong>0x或0X</strong> 表示十六进制，<strong>0</strong>表示八进制，同样的后缀有<strong>U(无符号整数）L(长整型）大小写均可</strong></p>
+<p>定义常量有<strong>const以及# define</strong> 请记住，<strong>常量是不可修改的。</strong></p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>条件运算符<strong>条件？a : b</strong> 如果条件成立，取a,反之取b;<strong>.（点）和（-&gt;）</strong>箭头表示成员运算符，</p>
+<p><strong>（&amp;）指针运算符，</strong>返回变量的地址。*<em>（</em>）** 指针运算符，指向变量。</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>常用函数：</p>
+<ol>
+<li> <code>strcpy(s1,s2)</code>复制字符串s2到s1;,(注意：该函数只能处理字符串数组)，且需要关注是的长度</li>
+<li><code>strcmp(s1,s2)</code>比较两个字符串数组是否相等，如果相等返回0，反之则不相等</li>
+</ol>
+<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>    *ip;    <span class="comment">/* 一个整型的指针 */</span></span><br><span class="line"><span class="keyword">double</span> *dp;    <span class="comment">/* 一个 double 型的指针 */</span></span><br><span class="line"><span class="keyword">float</span>  *fp;    <span class="comment">/* 一个浮点型的指针 */</span></span><br><span class="line"><span class="keyword">char</span>   *ch;    <span class="comment">/* 一个字符型的指针 */</span></span><br></pre></td></tr></table></figure>
+
+<p>定义一个指针变量、把变量地址赋值给指针、访问指针变量中可用地址的值。这些是通过使用一元运算符 ***** 来返回位于操作数所指定地址的变量的值</p>
+<h3 id="ctime-头文件"><a href="#ctime-头文件" class="headerlink" title="ctime 头文件"></a>ctime 头文件</h3><p>//这是一个很重要的文件，回头在补充说明</p>
+<h2 id="c-类和对象"><a href="#c-类和对象" class="headerlink" title="c++类和对象"></a>c++类和对象</h2><p>c++是一门面向对象编程的语言。</p>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://sunny-fly.github.io/2021/03/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BA%8C%E5%8F%89%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sunny">
+      <meta itemprop="description" content="突然发现，自己好像总是在学习方面慢别人一拍">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SUNNY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-25 12:05:49" itemprop="dateCreated datePublished" datetime="2021-03-25T12:05:49+08:00">2021-03-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://sunny-fly.github.io/2021/03/24/js,css,html%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95PPT%E5%8A%A8%E7%94%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="sunny">
+      <meta itemprop="description" content="突然发现，自己好像总是在学习方面慢别人一拍">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SUNNY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/24/js,css,html%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%AE%80%E5%8D%95PPT%E5%8A%A8%E7%94%BB/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-03-24 18:56:45 / Modified: 19:01:48" itemprop="dateCreated datePublished" datetime="2021-03-24T18:56:45+08:00">2021-03-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <hr>
+<p>title:简单PPT动画制作所学<br>tag :js,html,css,前端</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
     
 
 
